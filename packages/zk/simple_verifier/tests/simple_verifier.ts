@@ -22,7 +22,11 @@ describe("simple_verifier", () => {
       "../simple_circuit/simple_0001.zkey",
     );
 
-    await program.methods.verify(10, 2, Array.from(convertProofToBytes(proof))).rpc();
+    await program.methods.verify(
+      10,
+      2,
+      Array.from(convertProofToBytes(proof))
+    ).rpc();
     console.log("See transaction logs");
   })
 });

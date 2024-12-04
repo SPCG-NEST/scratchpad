@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.30.1",
+    "@types/snarkjs": "^0.7.8",
     "snarkjs": "^0.7.5"
   },
   "devDependencies": {

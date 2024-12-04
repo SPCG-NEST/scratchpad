@@ -17,7 +17,7 @@ pub mod simple_verifier {
         Ok(())
     }
 
-    pub fn verify(_ctx: Context<Verify>, a: u8, b: u8, proof: [u8; 256]) -> Result<()> {
+    pub fn verify(_ctx: Context<Verify>, result: u8, proof: [u8; 256]) -> Result<()> {
         let proof_a: G1 = <G1 as CanonicalDeserialize>::deserialize_uncompressed(
             &*[&change_endianness(&proof[0..64])[..], &[0u8][..]].concat(),
         )
@@ -29,9 +29,11 @@ pub mod simple_verifier {
         let proof_b: [u8; 128] = proof[64..192].try_into().unwrap();
         let proof_c: [u8; 64] = proof[192..256].try_into().unwrap();
 
-        let mut public_inputs: [[u8; 32]; 1] = [[0u8; 32]; 1];
-        public_inputs[0][30] = a;
-        public_inputs[0][31] = b;
+        /* let mut public_inputs: [[u8; 32]; 2] = [[0u8; 32]; 2];
+        public_inputs[0][31] = a;
+        public_inputs[1][31] = b; */
+        let mut public_inputs: [[u8; 32]; 1] = [[0u8; 32]];
+        public_inputs[0][31] = result;
 
         let mut verifier =
             Groth16Verifier::new(&proof_a, &proof_b, &proof_c, &public_inputs, &VERIFYINGKEY)

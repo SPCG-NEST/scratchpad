@@ -23,8 +23,7 @@ describe("simple_verifier", () => {
     );
 
     await program.methods.verify(
-      10,
-      2,
+      20,
       Array.from(convertProofToBytes(proof))
     ).rpc();
     console.log("See transaction logs");

@@ -1,0 +1,15 @@
+{
+  "name": "prover",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/snarkjs": "^0.7.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "snarkjs": "^0.7.5"
+  }
+}

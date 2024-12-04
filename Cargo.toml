@@ -1,5 +1,8 @@
 [workspace]
-members = ["packages/zk/simple_verifier/programs/*"]
+members = [
+    "packages/zk/simple_verifier/programs/*",
+    "packages/css/logger/programs/*",
+]
 resolver = "2"
 
 [profile.release]
